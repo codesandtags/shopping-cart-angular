@@ -1,17 +1,30 @@
 <div>
   <h1>Dashboard - Products added</h1>
 
-  <div>
-    <h2> TOTAL PRICE: {{totalPrice}}</h2>
-  </div>
-  <div class="products">
-    <div *ngFor="let product of products" class="product__item">
-      <app-shopping-cart-product [product]="product"></app-shopping-cart-product>
-      <div class="product__actions">
-        <button class="button button--warning" (click)="removeProduct(product)">
-          Quitar del carrito
-        </button>
+  <div class="shopping-cart" *ngIf="hasProducts(); else notProducts">
+    <div class="shopping-cart__products products">
+      <div *ngFor="let product of products" class="product__item">
+        <app-shopping-cart-product [product]="product"></app-shopping-cart-product>
+        <div class="product__actions">
+          <button class="button button--warning" (click)="removeProduct(product)">
+            Quitar del carrito
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="shopping-cart__checkout">
+      <h2> Total  {{totalPrice | currency:'USD':'symbol':'4.0'}} COP</h2>
+      <button class="button">Comprar</button>
+
+      <div class="shopping-cart__coupon">
+        <input type="text" placeholder="¿Tienes un cupon?">
+        <button class="button">Aplicar</button>
       </div>
     </div>
   </div>
+  <ng-template #notProducts>
+    <div class="shopping-cart__not-products">
+      <h2>No hay productos en el carrito de compras. Por favor agrega productos para realizar una compra</h2>
+    </div>
+  </ng-template>
 </div>

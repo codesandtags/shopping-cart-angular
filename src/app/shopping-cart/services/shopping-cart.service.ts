@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 export class ShoppingCartService {
 
   products: Product[];
+  LOCAL_STORAGE_KEY = 'songs';
 
   public removedProductSubject = new Subject<boolean>();
 
@@ -17,13 +18,12 @@ export class ShoppingCartService {
 
   public addProduct(product: Product): void {
     this.products.push(product);
-    console.log('Added product', this.products);
+    this.updateStorageProducts();
   }
 
   public removeProduct(product: Product): void {
-    console.log('Removed product', product);
     this.products = this.products.filter(currentProduct => currentProduct.id !== product.id);
-
+    this.updateStorageProducts();
     this.removedProductSubject.next(true);
   }
 
@@ -38,7 +38,16 @@ export class ShoppingCartService {
   }
 
   public getProducts(): Product[] {
-    console.log('Get Products', this.products);
+    const storedSongs = localStorage.getItem(this.LOCAL_STORAGE_KEY);
+    if (storedSongs) {
+      this.products = JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
+      return this.products;
+    }
+
     return this.products;
+  }
+
+  private updateStorageProducts(): void {
+    localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this.products));
   }
 }

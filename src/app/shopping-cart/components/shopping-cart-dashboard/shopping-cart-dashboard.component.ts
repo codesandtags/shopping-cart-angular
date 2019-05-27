@@ -36,4 +36,8 @@ export class ShoppingCartDashboardComponent implements OnInit, OnDestroy {
       this.removedSubscription.unsubscribe();
     }
   }
+
+  public hasProducts(): boolean {
+    return this.products && this.products.length > 0;
+  }
 }
