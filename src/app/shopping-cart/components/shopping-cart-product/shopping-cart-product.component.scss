@@ -1,0 +1,32 @@
+.product {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  padding: 2rem 0;
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 10rem;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 1rem;
+  }
+}

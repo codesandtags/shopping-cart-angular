@@ -1,32 +1,44 @@
 import { Injectable } from '@angular/core';
-import { ShoppingCartModel } from '../models/shopping-cart.model';
 import { Product } from '../models/product.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
 
-  shoppingCart: ShoppingCartModel;
+  products: Product[];
+
+  public removedProductSubject = new Subject<boolean>();
 
   constructor() {
-    this.shoppingCart.products = [];
+    this.products = [];
   }
 
-  public addProduct(): void {
-    // TODO: Add product logic
+  public addProduct(product: Product): void {
+    this.products.push(product);
+    console.log('Added product', this.products);
   }
 
-  public removeProduct(): void {
-    // TODO: Remove product logic
+  public removeProduct(product: Product): void {
+    console.log('Removed product', product);
+    this.products = this.products.filter(currentProduct => currentProduct.id !== product.id);
+
+    this.removedProductSubject.next(true);
   }
 
   public getTotal(): number {
-    // TODO: Retrieve the total of all products
-    return 0;
+    const totalPrice = this.products
+      .reduce((previousValue: number, currentValue: Product) => {
+        return previousValue + currentValue.price;
+      }, 0);
+    console.log('Get Total', totalPrice);
+
+    return totalPrice;
   }
 
   public getProducts(): Product[] {
-    return this.shoppingCart.products;
+    console.log('Get Products', this.products);
+    return this.products;
   }
 }

@@ -1,15 +1,12 @@
 <div>
-  <h1>Dashboard - Products added</h1>
+  <h1>Product List</h1>
 
-  <div>
-    <h2> TOTAL PRICE: {{totalPrice}}</h2>
-  </div>
   <div class="products">
     <div *ngFor="let product of products" class="product__item">
       <app-shopping-cart-product [product]="product"></app-shopping-cart-product>
       <div class="product__actions">
-        <button class="button button--warning" (click)="removeProduct(product)">
-          Quitar del carrito
+        <button class="button" (click)="addProduct(product)">
+          Agregar al carrito
         </button>
       </div>
     </div>

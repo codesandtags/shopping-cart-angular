@@ -1,6 +1,12 @@
-<div>
-  <h1>Shopping Cart</h1>
+<div class="container">
+  <div>
+    <h1>Shopping Cart</h1>
+    <hr>
+    <ul class="menu">
+      <li routerLink="/shopping/products">Go to products</li>
+      <li routerLink="/shopping/dashboard">Go to dashboard</li>
+    </ul>
+  </div>
 
+  <router-outlet></router-outlet>
 </div>
-
-<router-outlet></router-outlet>

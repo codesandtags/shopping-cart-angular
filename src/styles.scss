@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+// Palette Colors
+$gray: #f4f5f7;
+$gray2: #cccccc;
+$gray3: #9b9b9b;
+$green: #01c3ca;
+$green-light: #01c3ca;
+$green-dark: #01a3aa;
+$red: #dd465f;
+$purple: #8c0a20;
+$white: #ffffff;
+
+$black: #333;
+$text-color: #555;
+$text-color-light: #777;
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  letter-spacing: 0.03rem;
+}
+
+html {
+  font-size: 10px; // 1 rem = 16px; 10px/16px = 62.5%
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.button {
+  background-image: linear-gradient(
+      to bottom,
+      $green-light,
+      $green-dark);
+  color: $white;
+  margin-top: 2rem;
+  font-weight: 500;
+  outline: none;
+  padding: 1rem;
+
+  &:hover {
+    background-image: linear-gradient(to bottom, #4BC1C5, #00B1B9);
+  }
+
+  &--warning {
+    background: $red;
+    color: $white;
+
+    &:active,
+    &:hover {
+      background: $purple;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 100rem;
+  margin: auto;
+}
+
+
