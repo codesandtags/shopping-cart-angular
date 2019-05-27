@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="114" height="254" viewBox="0 0 114 254">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#FFF" d="M-911-495H113v2112H-911z"/>
+        <g fill-rule="nonzero" transform="translate(-1)">
+            <rect width="187" height="30" x="-16" y="139" fill="#01C3CA" rx="15" transform="rotate(-45 77.5 154)"/>
+            <rect width="94" height="30" x="82" y="165" fill="#0C80A6" rx="15" transform="rotate(-45 129 180)"/>
+            <circle cx="65.5" cy="238.5" r="15.5" fill="#DD465F"/>
+            <circle cx="41.5" cy="112.5" r="8.5" fill="#0C80A6"/>
+            <rect width="94" height="30" x="52" y="42" fill="#32DFE3" rx="15" transform="rotate(-45 99 57)"/>
+        </g>
+    </g>
+</svg>
